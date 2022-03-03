@@ -1,0 +1,54 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:flowtype/recommended"
+  ],
+  "plugins": ["react", "flowtype"],
+  "env": {
+    "es6": true,
+    "shared-node-browser": true
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  },
+  "overrides": [
+    {
+      "files": [
+        "babel.config.js",
+        "jest.config.js",
+        "cosmos.config.js",
+        "next.config.js",
+        "webpack.extend.js",
+        "ui/webpack-loaders/**/*.js",
+        "ui/server/**/*.js"
+      ],
+      "env": {
+        "node": true
+      },
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": ["**/test.js", "**/*.test.js"],
+      "env": {
+        "jest": true
+      }
+    },
+    {
+      "files": ["**/localstorage/test.js"],
+      "env": {
+        "browser": true
+      }
+    }
+  ]
+}
